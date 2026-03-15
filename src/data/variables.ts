@@ -1,16 +1,11 @@
 /**
  * Variables Configuration
  * =======================
- * 
+ *
  * CENTRAL PLACE TO DEFINE ALL SHARED VARIABLES
- * 
+ *
  * This file defines all variables that can be shared across sections.
  * AI agents should read this file to understand what variables are available.
- * 
- * USAGE:
- * 1. Define variables here with their default values and metadata
- * 2. Use them in any section with: const x = useVar('variableName', defaultValue)
- * 3. Update them with: setVar('variableName', newValue)
  */
 
 import { type VarValue } from '@/stores';
@@ -51,110 +46,270 @@ export interface VariableDefinition {
     schema?: string;
 }
 
-/**
- * =====================================================
- * 🎯 DEFINE YOUR VARIABLES HERE
- * =====================================================
- * 
- * SUPPORTED TYPES:
- * 
- * 1. NUMBER (slider):
- *    { defaultValue: 5, type: 'number', min: 0, max: 10, step: 1 }
- * 
- * 2. TEXT (free text):
- *    { defaultValue: 'Hello', type: 'text', placeholder: 'Enter text...' }
- * 
- * 3. SELECT (dropdown):
- *    { defaultValue: 'sine', type: 'select', options: ['sine', 'cosine', 'tangent'] }
- * 
- * 4. BOOLEAN (toggle):
- *    { defaultValue: true, type: 'boolean' }
- * 
- * 5. ARRAY (list of numbers):
- *    { defaultValue: [1, 2, 3], type: 'array' }
- * 
- * 6. OBJECT (complex data):
- *    { defaultValue: { x: 5, y: 10 }, type: 'object', schema: '{ x: number, y: number }' }
- */
 export const variableDefinitions: Record<string, VariableDefinition> = {
     // ========================================
-    // ADD YOUR VARIABLES HERE
+    // INTRODUCTION SECTION
     // ========================================
+    introBoxSide: {
+        defaultValue: 3,
+        type: 'number',
+        label: 'Introduction Box Side',
+        description: 'Side length of the introductory box',
+        min: 1,
+        max: 5,
+        step: 0.5,
+        color: '#62D0AD',
+    },
 
-    // Uncomment and modify these examples for your lesson:
+    // ========================================
+    // CUBE SECTION
+    // ========================================
+    cubeSide: {
+        defaultValue: 3,
+        type: 'number',
+        label: 'Cube Side Length',
+        description: 'The side length of the cube in units',
+        unit: 'cm',
+        min: 1,
+        max: 6,
+        step: 0.5,
+        color: '#62D0AD',
+    },
+    answerCubeSurfaceArea: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Cube Surface Area Answer',
+        description: 'Student answer for cube surface area question',
+        placeholder: '?',
+        correctAnswer: '150',
+        color: '#8E90F5',
+    },
+    answerCubeVolume: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Cube Volume Answer',
+        description: 'Student answer for cube volume question',
+        placeholder: '?',
+        correctAnswer: '125',
+        color: '#8E90F5',
+    },
 
-    /*
-    // ─────────────────────────────────────────
-    // NUMBER - Use with sliders
-    // ─────────────────────────────────────────
-    myValue: {
+    // ========================================
+    // CUBOID SECTION
+    // ========================================
+    cuboidLength: {
+        defaultValue: 4,
+        type: 'number',
+        label: 'Cuboid Length',
+        description: 'The length of the cuboid',
+        unit: 'cm',
+        min: 1,
+        max: 8,
+        step: 0.5,
+        color: '#62D0AD',
+    },
+    cuboidWidth: {
+        defaultValue: 3,
+        type: 'number',
+        label: 'Cuboid Width',
+        description: 'The width of the cuboid',
+        unit: 'cm',
+        min: 1,
+        max: 6,
+        step: 0.5,
+        color: '#8E90F5',
+    },
+    cuboidHeight: {
+        defaultValue: 2,
+        type: 'number',
+        label: 'Cuboid Height',
+        description: 'The height of the cuboid',
+        unit: 'cm',
+        min: 1,
+        max: 6,
+        step: 0.5,
+        color: '#F7B23B',
+    },
+    answerCuboidVolume: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Cuboid Volume Answer',
+        description: 'Student answer for cuboid volume question',
+        placeholder: '?',
+        correctAnswer: '60',
+        color: '#AC8BF9',
+    },
+
+    // ========================================
+    // CYLINDER SECTION
+    // ========================================
+    cylinderRadius: {
+        defaultValue: 2,
+        type: 'number',
+        label: 'Cylinder Radius',
+        description: 'The radius of the cylinder base',
+        unit: 'cm',
+        min: 0.5,
+        max: 5,
+        step: 0.5,
+        color: '#62D0AD',
+    },
+    cylinderHeight: {
+        defaultValue: 4,
+        type: 'number',
+        label: 'Cylinder Height',
+        description: 'The height of the cylinder',
+        unit: 'cm',
+        min: 1,
+        max: 8,
+        step: 0.5,
+        color: '#8E90F5',
+    },
+    answerCylinderVolume: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Cylinder Volume Answer',
+        description: 'Student answer for cylinder volume question',
+        placeholder: '?',
+        correctAnswer: '628',
+        color: '#F7B23B',
+    },
+
+    // ========================================
+    // CONE SECTION
+    // ========================================
+    coneRadius: {
+        defaultValue: 3,
+        type: 'number',
+        label: 'Cone Radius',
+        description: 'The radius of the cone base',
+        unit: 'cm',
+        min: 1,
+        max: 5,
+        step: 0.5,
+        color: '#62D0AD',
+    },
+    coneHeight: {
+        defaultValue: 4,
+        type: 'number',
+        label: 'Cone Height',
+        description: 'The vertical height of the cone',
+        unit: 'cm',
+        min: 1,
+        max: 8,
+        step: 0.5,
+        color: '#8E90F5',
+    },
+    answerConeFormula: {
+        defaultValue: '',
+        type: 'select',
+        label: 'Cone Formula Choice',
+        description: 'Student choice for cone volume formula',
+        placeholder: '?',
+        correctAnswer: '⅓πr²h',
+        options: ['πr²h', '⅓πr²h', '½πr²h', '2πr²h'],
+        color: '#F7B23B',
+    },
+
+    // ========================================
+    // SPHERE SECTION
+    // ========================================
+    sphereRadius: {
+        defaultValue: 3,
+        type: 'number',
+        label: 'Sphere Radius',
+        description: 'The radius of the sphere',
+        unit: 'cm',
+        min: 1,
+        max: 5,
+        step: 0.5,
+        color: '#62D0AD',
+    },
+    answerSphereVolume: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Sphere Volume Answer',
+        description: 'Student answer for sphere volume question',
+        placeholder: '?',
+        correctAnswer: '905',
+        color: '#8E90F5',
+    },
+
+    // ========================================
+    // PYRAMID SECTION
+    // ========================================
+    pyramidBase: {
+        defaultValue: 4,
+        type: 'number',
+        label: 'Pyramid Base Side',
+        description: 'The side length of the square base',
+        unit: 'cm',
+        min: 1,
+        max: 6,
+        step: 0.5,
+        color: '#62D0AD',
+    },
+    pyramidHeight: {
         defaultValue: 5,
         type: 'number',
-        label: 'My Value',
-        description: 'A number that controls something',
-        unit: 'm',           // optional unit display
-        min: 0,
-        max: 10,
+        label: 'Pyramid Height',
+        description: 'The vertical height of the pyramid',
+        unit: 'cm',
+        min: 1,
+        max: 8,
         step: 0.5,
+        color: '#8E90F5',
     },
-
-    // ─────────────────────────────────────────
-    // TEXT - Free text input
-    // ─────────────────────────────────────────
-    lessonTitle: {
-        defaultValue: 'My Lesson',
+    answerPyramidVolume: {
+        defaultValue: '',
         type: 'text',
-        label: 'Lesson Title',
-        description: 'The title of your lesson',
-        placeholder: 'Enter a title...',
+        label: 'Pyramid Volume Answer',
+        description: 'Student answer for pyramid volume question',
+        placeholder: '?',
+        correctAnswer: '48',
+        color: '#F7B23B',
     },
 
-    // ─────────────────────────────────────────
-    // SELECT - Dropdown with options
-    // ─────────────────────────────────────────
-    difficulty: {
-        defaultValue: 'medium',
+    // ========================================
+    // FORMULA FINDER CHALLENGE
+    // ========================================
+    challengeShape: {
+        defaultValue: 'cube',
         type: 'select',
-        label: 'Difficulty',
-        description: 'The difficulty level of the lesson',
-        options: ['easy', 'medium', 'hard', 'expert'],
+        label: 'Challenge Shape',
+        description: 'The shape for the formula challenge',
+        options: ['cube', 'cuboid', 'cylinder', 'cone', 'sphere', 'pyramid'],
+        color: '#AC8BF9',
     },
-
-    // ─────────────────────────────────────────
-    // BOOLEAN - Toggle switch
-    // ─────────────────────────────────────────
-    showHints: {
-        defaultValue: true,
-        type: 'boolean',
-        label: 'Show Hints',
-        description: 'Toggle to show or hide hints',
+    answerChallengeOne: {
+        defaultValue: '',
+        type: 'select',
+        label: 'Challenge One Answer',
+        description: 'First challenge question answer',
+        placeholder: '?',
+        correctAnswer: 'Cylinder',
+        options: ['Cube', 'Cylinder', 'Cone', 'Sphere'],
+        color: '#62D0AD',
     },
-
-    // ─────────────────────────────────────────
-    // ARRAY - List of numbers
-    // ─────────────────────────────────────────
-    dataPoints: {
-        defaultValue: [1, 4, 9, 16, 25],
-        type: 'array',
-        label: 'Data Points',
-        description: 'Y-values for plotting a graph',
+    answerChallengeTwo: {
+        defaultValue: '',
+        type: 'select',
+        label: 'Challenge Two Answer',
+        description: 'Second challenge question answer',
+        placeholder: '?',
+        correctAnswer: 'Cone',
+        options: ['Cuboid', 'Cylinder', 'Cone', 'Pyramid'],
+        color: '#8E90F5',
     },
-
-    // ─────────────────────────────────────────
-    // OBJECT - Complex structured data
-    // ─────────────────────────────────────────
-    graphSettings: {
-        defaultValue: { 
-            xMin: -10, 
-            xMax: 10, 
-            showGrid: true 
-        },
-        type: 'object',
-        label: 'Graph Settings',
-        description: 'Configuration for the graph display',
-        schema: '{ xMin: number, xMax: number, showGrid: boolean }',
+    answerChallengeThree: {
+        defaultValue: '',
+        type: 'text',
+        label: 'Challenge Three Answer',
+        description: 'Third challenge calculation answer',
+        placeholder: '?',
+        correctAnswer: '36',
+        color: '#F7B23B',
     },
-    */
 };
 
 /**
@@ -191,7 +346,6 @@ export const getDefaultValues = (): Record<string, VarValue> => {
 
 /**
  * Get number props for InlineScrubbleNumber from a variable definition.
- * Use with getVariableInfo(name) in blocks.tsx, or getExampleVariableInfo(name) in exampleBlocks.tsx.
  */
 export function numberPropsFromDefinition(def: VariableDefinition | undefined): {
     defaultValue?: number;
@@ -211,12 +365,7 @@ export function numberPropsFromDefinition(def: VariableDefinition | undefined): 
 }
 
 /**
- * Get cloze input props for InlineClozeInput from a variable definition.
- * Use with getVariableInfo(name) in blocks.tsx, or getExampleVariableInfo(name) in exampleBlocks.tsx.
- */
-/**
  * Get cloze choice props for InlineClozeChoice from a variable definition.
- * Use with getVariableInfo(name) in blocks.tsx.
  */
 export function choicePropsFromDefinition(def: VariableDefinition | undefined): {
     placeholder?: string;
@@ -233,7 +382,6 @@ export function choicePropsFromDefinition(def: VariableDefinition | undefined): 
 
 /**
  * Get toggle props for InlineToggle from a variable definition.
- * Use with getVariableInfo(name) in blocks.tsx.
  */
 export function togglePropsFromDefinition(def: VariableDefinition | undefined): {
     color?: string;
@@ -263,15 +411,6 @@ export function clozePropsFromDefinition(def: VariableDefinition | undefined): {
 
 /**
  * Get spot-color props for InlineSpotColor from a variable definition.
- * Extracts the `color` field.
- *
- * @example
- * <InlineSpotColor
- *     varName="radius"
- *     {...spotColorPropsFromDefinition(getVariableInfo('radius'))}
- * >
- *     radius
- * </InlineSpotColor>
  */
 export function spotColorPropsFromDefinition(def: VariableDefinition | undefined): {
     color: string;
@@ -283,16 +422,6 @@ export function spotColorPropsFromDefinition(def: VariableDefinition | undefined
 
 /**
  * Get linked-highlight props for InlineLinkedHighlight from a variable definition.
- * Extracts the `color` and `bgColor` fields.
- *
- * @example
- * <InlineLinkedHighlight
- *     varName="activeHighlight"
- *     highlightId="radius"
- *     {...linkedHighlightPropsFromDefinition(getVariableInfo('activeHighlight'))}
- * >
- *     radius
- * </InlineLinkedHighlight>
  */
 export function linkedHighlightPropsFromDefinition(def: VariableDefinition | undefined): {
     color?: string;
@@ -306,17 +435,6 @@ export function linkedHighlightPropsFromDefinition(def: VariableDefinition | und
 
 /**
  * Build the `variables` prop for FormulaBlock from variable definitions.
- *
- * Takes an array of variable names and returns the config map expected by
- * `<FormulaBlock variables={...} />`.
- *
- * @example
- * import { scrubVarsFromDefinitions } from './variables';
- *
- * <FormulaBlock
- *     latex="\scrub{mass} \times \scrub{accel}"
- *     variables={scrubVarsFromDefinitions(['mass', 'accel'])}
- * />
  */
 export function scrubVarsFromDefinitions(
     varNames: string[],
