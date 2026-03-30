@@ -130,6 +130,20 @@ function PyramidCalculations() {
     );
 }
 
+// Inline reactive displays for pyramid
+function PyramidBaseAreaInline() {
+    const base = useVar("pyramidBase", 4) as number;
+    const baseArea = base * base;
+    return <span className="font-semibold text-purple-600">{baseArea.toFixed(1)}</span>;
+}
+
+function PyramidVolumeInline() {
+    const base = useVar("pyramidBase", 4) as number;
+    const height = useVar("pyramidHeight", 5) as number;
+    const volume = (1 / 3) * base * base * height;
+    return <span className="font-semibold text-teal-600">{volume.toFixed(1)}</span>;
+}
+
 export const pyramidBlocks: ReactElement[] = [
     <StackLayout key="layout-pyramid-heading" maxWidth="xl">
         <Block id="pyramid-heading" padding="lg">
@@ -160,7 +174,7 @@ export const pyramidBlocks: ReactElement[] = [
                     varName="pyramidHeight"
                     {...numberPropsFromDefinition(getVariableInfo("pyramidHeight"))}
                 />{" "}
-                cm, rotate to explore the structure.
+                cm, the square base has area <PyramidBaseAreaInline /> cm² and the pyramid holds <PyramidVolumeInline /> cm³.
             </EditableParagraph>
         </Block>
     </StackLayout>,

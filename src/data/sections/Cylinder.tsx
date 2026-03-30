@@ -147,6 +147,23 @@ function CylinderCalculations() {
     );
 }
 
+// Inline reactive displays for cylinder
+function CylinderSurfaceAreaInline() {
+    const radius = useVar("cylinderRadius", 2) as number;
+    const height = useVar("cylinderHeight", 4) as number;
+    const baseArea = Math.PI * radius * radius;
+    const lateralArea = 2 * Math.PI * radius * height;
+    const surfaceArea = 2 * baseArea + lateralArea;
+    return <span className="font-semibold text-indigo-600">{surfaceArea.toFixed(1)}</span>;
+}
+
+function CylinderVolumeInline() {
+    const radius = useVar("cylinderRadius", 2) as number;
+    const height = useVar("cylinderHeight", 4) as number;
+    const volume = Math.PI * radius * radius * height;
+    return <span className="font-semibold text-teal-600">{volume.toFixed(1)}</span>;
+}
+
 export const cylinderBlocks: ReactElement[] = [
     <StackLayout key="layout-cylinder-heading" maxWidth="xl">
         <Block id="cylinder-heading" padding="lg">
@@ -159,7 +176,7 @@ export const cylinderBlocks: ReactElement[] = [
     <StackLayout key="layout-cylinder-intro" maxWidth="xl">
         <Block id="cylinder-intro" padding="sm">
             <EditableParagraph id="para-cylinder-intro" blockId="cylinder-intro">
-                A cylinder is like a stack of circles: two circular bases connected by a curved surface. With{" "}
+                A cylinder has two circular bases connected by a curved surface. With{" "}
                 <InlineSpotColor varName="cylinderRadius" color="#62D0AD">radius</InlineSpotColor>
                 {" "}={" "}
                 <InlineScrubbleNumber
@@ -173,7 +190,7 @@ export const cylinderBlocks: ReactElement[] = [
                     varName="cylinderHeight"
                     {...numberPropsFromDefinition(getVariableInfo("cylinderHeight"))}
                 />{" "}
-                cm, rotate to explore its shape.
+                cm, it has a surface area of <CylinderSurfaceAreaInline /> cm² and holds <CylinderVolumeInline /> cm³ inside.
             </EditableParagraph>
         </Block>
     </StackLayout>,

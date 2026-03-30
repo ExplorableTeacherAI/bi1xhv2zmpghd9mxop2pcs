@@ -132,6 +132,19 @@ function SphereCalculations() {
     );
 }
 
+// Inline reactive displays for sphere
+function SphereSurfaceAreaInline() {
+    const radius = useVar("sphereRadius", 3) as number;
+    const surfaceArea = 4 * Math.PI * radius * radius;
+    return <span className="font-semibold text-indigo-600">{surfaceArea.toFixed(1)}</span>;
+}
+
+function SphereVolumeInline() {
+    const radius = useVar("sphereRadius", 3) as number;
+    const volume = (4 / 3) * Math.PI * radius * radius * radius;
+    return <span className="font-semibold text-teal-600">{volume.toFixed(1)}</span>;
+}
+
 export const sphereBlocks: ReactElement[] = [
     <StackLayout key="layout-sphere-heading" maxWidth="xl">
         <Block id="sphere-heading" padding="lg">
@@ -151,7 +164,7 @@ export const sphereBlocks: ReactElement[] = [
                     varName="sphereRadius"
                     {...numberPropsFromDefinition(getVariableInfo("sphereRadius"))}
                 />{" "}
-                cm from the center. Rotate to see this perfect roundness.
+                cm from the center. Its surface area is <SphereSurfaceAreaInline /> cm² and it holds <SphereVolumeInline /> cm³ inside.
             </EditableParagraph>
         </Block>
     </StackLayout>,

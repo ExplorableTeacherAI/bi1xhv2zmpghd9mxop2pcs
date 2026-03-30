@@ -147,6 +147,21 @@ function ConeCalculations() {
     );
 }
 
+// Inline reactive displays for cone
+function ConeVolumeInline() {
+    const radius = useVar("coneRadius", 3) as number;
+    const height = useVar("coneHeight", 4) as number;
+    const volume = (1 / 3) * Math.PI * radius * radius * height;
+    return <span className="font-semibold text-teal-600">{volume.toFixed(1)}</span>;
+}
+
+function ConeSlantHeightInline() {
+    const radius = useVar("coneRadius", 3) as number;
+    const height = useVar("coneHeight", 4) as number;
+    const slantHeight = Math.sqrt(radius * radius + height * height);
+    return <span className="font-semibold text-purple-600">{slantHeight.toFixed(1)}</span>;
+}
+
 export const coneBlocks: ReactElement[] = [
     <StackLayout key="layout-cone-heading" maxWidth="xl">
         <Block id="cone-heading" padding="lg">
@@ -177,7 +192,7 @@ export const coneBlocks: ReactElement[] = [
                 <InlineTooltip id="tooltip-apex" tooltip="The tip or point at the top of the cone, opposite to the base">
                     apex
                 </InlineTooltip>
-                .
+                . The slant height along the surface is <ConeSlantHeightInline /> cm, and the volume is <ConeVolumeInline /> cm³.
             </EditableParagraph>
         </Block>
     </StackLayout>,

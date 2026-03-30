@@ -87,6 +87,20 @@ function CubeCalculations() {
     );
 }
 
+// Inline reactive display for cube surface area
+function CubeSurfaceAreaInline() {
+    const side = useVar("cubeSide", 3) as number;
+    const surfaceArea = 6 * side * side;
+    return <span className="font-semibold text-indigo-600">{surfaceArea.toFixed(1)}</span>;
+}
+
+// Inline reactive display for cube volume
+function CubeVolumeInline() {
+    const side = useVar("cubeSide", 3) as number;
+    const volume = side * side * side;
+    return <span className="font-semibold text-teal-600">{volume.toFixed(1)}</span>;
+}
+
 // ============================================================================
 // CUBOID SECTION
 // ============================================================================
@@ -162,6 +176,24 @@ function CuboidCalculations() {
     );
 }
 
+// Inline reactive display for cuboid surface area
+function CuboidSurfaceAreaInline() {
+    const length = useVar("cuboidLength", 4) as number;
+    const width = useVar("cuboidWidth", 3) as number;
+    const height = useVar("cuboidHeight", 2) as number;
+    const surfaceArea = 2 * (length * width + length * height + width * height);
+    return <span className="font-semibold text-indigo-600">{surfaceArea.toFixed(1)}</span>;
+}
+
+// Inline reactive display for cuboid volume
+function CuboidVolumeInline() {
+    const length = useVar("cuboidLength", 4) as number;
+    const width = useVar("cuboidWidth", 3) as number;
+    const height = useVar("cuboidHeight", 2) as number;
+    const volume = length * width * height;
+    return <span className="font-semibold text-teal-600">{volume.toFixed(1)}</span>;
+}
+
 export const cubeAndCuboidBlocks: ReactElement[] = [
     // ========== CUBE SECTION ==========
     <StackLayout key="layout-cube-heading" maxWidth="xl">
@@ -175,12 +207,16 @@ export const cubeAndCuboidBlocks: ReactElement[] = [
     <StackLayout key="layout-cube-intro" maxWidth="xl">
         <Block id="cube-intro" padding="sm">
             <EditableParagraph id="para-cube-intro" blockId="cube-intro">
-                A cube has all edges equal. With side length{" "}
+                A cube has all edges equal. With{" "}
+                <InlineSpotColor varName="cubeSide" color="#62D0AD">side</InlineSpotColor>
+                {" "}={" "}
                 <InlineScrubbleNumber
                     varName="cubeSide"
                     {...numberPropsFromDefinition(getVariableInfo("cubeSide"))}
                 />{" "}
-                cm, rotate the 3D shape and notice all 6 faces are identical squares.
+                cm, each face has area side × side, giving a total surface area of{" "}
+                <CubeSurfaceAreaInline /> cm² across all 6 faces. The space inside holds{" "}
+                <CubeVolumeInline /> cm³. Rotate the 3D shape and watch these values change as you adjust the side length.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -329,7 +365,7 @@ export const cubeAndCuboidBlocks: ReactElement[] = [
     <StackLayout key="layout-cuboid-intro" maxWidth="xl">
         <Block id="cuboid-intro" padding="sm">
             <EditableParagraph id="para-cuboid-intro" blockId="cuboid-intro">
-                A cuboid has{" "}
+                A cuboid has three different dimensions:{" "}
                 <InlineSpotColor varName="cuboidLength" color="#62D0AD">length</InlineSpotColor>
                 {" "}={" "}
                 <InlineScrubbleNumber
@@ -350,7 +386,7 @@ export const cubeAndCuboidBlocks: ReactElement[] = [
                     varName="cuboidHeight"
                     {...numberPropsFromDefinition(getVariableInfo("cuboidHeight"))}
                 />{" "}
-                cm. Rotate to see the different-sized faces.
+                cm. This gives a surface area of <CuboidSurfaceAreaInline /> cm² and a volume of <CuboidVolumeInline /> cm³. Rotate to see how each dimension affects the shape.
             </EditableParagraph>
         </Block>
     </StackLayout>,
