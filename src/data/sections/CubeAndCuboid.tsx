@@ -338,11 +338,26 @@ export const cubeAndCuboidBlocks: ReactElement[] = [
             <EditableParagraph id="para-cuboid-intro" blockId="cuboid-intro">
                 A cuboid has{" "}
                 <InlineSpotColor varName="cuboidLength" color="#62D0AD">length</InlineSpotColor>
-                ,{" "}
+                {" "}={" "}
+                <InlineScrubbleNumber
+                    varName="cuboidLength"
+                    {...numberPropsFromDefinition(getVariableInfo("cuboidLength"))}
+                />{" "}
+                cm,{" "}
                 <InlineSpotColor varName="cuboidWidth" color="#8E90F5">width</InlineSpotColor>
-                , and{" "}
+                {" "}={" "}
+                <InlineScrubbleNumber
+                    varName="cuboidWidth"
+                    {...numberPropsFromDefinition(getVariableInfo("cuboidWidth"))}
+                />{" "}
+                cm, and{" "}
                 <InlineSpotColor varName="cuboidHeight" color="#F7B23B">height</InlineSpotColor>
-                . Boxes and bricks are cuboids. Rotate to see the different-sized faces.
+                {" "}={" "}
+                <InlineScrubbleNumber
+                    varName="cuboidHeight"
+                    {...numberPropsFromDefinition(getVariableInfo("cuboidHeight"))}
+                />{" "}
+                cm. Rotate to see the different-sized faces.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -352,35 +367,9 @@ export const cubeAndCuboidBlocks: ReactElement[] = [
         <Block id="cuboid-visualization" padding="sm" hasVisualization>
             <InteractiveCuboid />
         </Block>
-        <div className="space-y-4">
-            <Block id="cuboid-controls" padding="sm">
-                <EditableParagraph id="para-cuboid-controls" blockId="cuboid-controls">
-                    <strong>Length:</strong>{" "}
-                    <InlineScrubbleNumber
-                        varName="cuboidLength"
-                        {...numberPropsFromDefinition(getVariableInfo("cuboidLength"))}
-                    />{" "}
-                    cm
-                    <br />
-                    <strong>Width:</strong>{" "}
-                    <InlineScrubbleNumber
-                        varName="cuboidWidth"
-                        {...numberPropsFromDefinition(getVariableInfo("cuboidWidth"))}
-                    />{" "}
-                    cm
-                    <br />
-                    <strong>Height:</strong>{" "}
-                    <InlineScrubbleNumber
-                        varName="cuboidHeight"
-                        {...numberPropsFromDefinition(getVariableInfo("cuboidHeight"))}
-                    />{" "}
-                    cm
-                </EditableParagraph>
-            </Block>
-            <Block id="cuboid-calculations" padding="sm">
-                <CuboidCalculations />
-            </Block>
-        </div>
+        <Block id="cuboid-calculations" padding="sm">
+            <CuboidCalculations />
+        </Block>
     </SplitLayout>,
 
     // Cuboid formulas
