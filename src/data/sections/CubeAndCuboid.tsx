@@ -175,7 +175,7 @@ export const cubeAndCuboidBlocks: ReactElement[] = [
     <StackLayout key="layout-cube-intro" maxWidth="xl">
         <Block id="cube-intro" padding="sm">
             <EditableParagraph id="para-cube-intro" blockId="cube-intro">
-                A cube is a special type of rectangular box where all edges have the same length. This makes the formulas beautifully simple. Every face is an identical square, and there are exactly 6 faces. Rotate the 3D cube below and notice how all sides look the same from every angle.
+                A cube has all edges the same length. Every face is an identical square. Rotate the 3D cube and notice how all 6 faces look the same from every angle.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -224,11 +224,16 @@ export const cubeAndCuboidBlocks: ReactElement[] = [
     <StackLayout key="layout-cube-surface-explanation" maxWidth="xl">
         <Block id="cube-surface-explanation" padding="sm">
             <EditableParagraph id="para-cube-surface-explanation" blockId="cube-surface-explanation">
-                Why 6 times the side squared? A cube has 6 identical square faces. Each face has an area of{" "}
+                A cube with side{" "}
+                <InlineScrubbleNumber
+                    varName="cubeSide"
+                    {...numberPropsFromDefinition(getVariableInfo("cubeSide"))}
+                />{" "}
+                cm has 6 faces, each with area{" "}
                 <InlineSpotColor varName="cubeSide" color="#62D0AD">side</InlineSpotColor>
                 {" "}×{" "}
                 <InlineSpotColor varName="cubeSide" color="#62D0AD">side</InlineSpotColor>
-                . So the total surface area is 6 × side². Try changing the side length above and watch how quickly the surface area grows!
+                . Watch the surface area jump as you increase the side length!
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -246,7 +251,24 @@ export const cubeAndCuboidBlocks: ReactElement[] = [
     <StackLayout key="layout-cube-volume-explanation" maxWidth="xl">
         <Block id="cube-volume-explanation" padding="sm">
             <EditableParagraph id="para-cube-volume-explanation" blockId="cube-volume-explanation">
-                The volume is simply side × side × side, or side cubed. This tells us how many unit cubes fit inside. Notice that when you double the side length, the volume increases by 8 times (2³ = 8). This is why volume grows so much faster than surface area!
+                Volume is{" "}
+                <InlineScrubbleNumber
+                    varName="cubeSide"
+                    {...numberPropsFromDefinition(getVariableInfo("cubeSide"))}
+                />
+                {" "}×{" "}
+                <InlineScrubbleNumber
+                    varName="cubeSide"
+                    {...numberPropsFromDefinition(getVariableInfo("cubeSide"))}
+                    showHint={false}
+                />
+                {" "}×{" "}
+                <InlineScrubbleNumber
+                    varName="cubeSide"
+                    {...numberPropsFromDefinition(getVariableInfo("cubeSide"))}
+                    showHint={false}
+                />
+                {" "}= side³. Double the side and the volume grows 8 times!
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -314,13 +336,13 @@ export const cubeAndCuboidBlocks: ReactElement[] = [
     <StackLayout key="layout-cuboid-intro" maxWidth="xl">
         <Block id="cuboid-intro" padding="sm">
             <EditableParagraph id="para-cuboid-intro" blockId="cuboid-intro">
-                A cuboid (also called a rectangular prism) is like a stretched cube. It has three different dimensions:{" "}
+                A cuboid has three dimensions:{" "}
                 <InlineSpotColor varName="cuboidLength" color="#62D0AD">length</InlineSpotColor>
                 ,{" "}
                 <InlineSpotColor varName="cuboidWidth" color="#8E90F5">width</InlineSpotColor>
                 , and{" "}
                 <InlineSpotColor varName="cuboidHeight" color="#F7B23B">height</InlineSpotColor>
-                . Boxes, books, and most furniture are cuboids. Rotate the shape below and see how the three dimensions create different-sized faces.
+                . Boxes, books, and bricks are all cuboids. Rotate the shape to see how the different dimensions create different-sized faces.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -383,7 +405,40 @@ export const cubeAndCuboidBlocks: ReactElement[] = [
     <StackLayout key="layout-cuboid-surface-explanation" maxWidth="xl">
         <Block id="cuboid-surface-explanation" padding="sm">
             <EditableParagraph id="para-cuboid-surface-explanation" blockId="cuboid-surface-explanation">
-                This formula looks complex, but it makes sense when you think about it: a cuboid has 3 pairs of identical faces. The top and bottom faces are length × width, the front and back are length × height, and the sides are width × height. We multiply by 2 because each type of face appears twice.
+                A cuboid has 3 pairs of faces: top/bottom ({" "}
+                <InlineScrubbleNumber
+                    varName="cuboidLength"
+                    {...numberPropsFromDefinition(getVariableInfo("cuboidLength"))}
+                />
+                {" "}×{" "}
+                <InlineScrubbleNumber
+                    varName="cuboidWidth"
+                    {...numberPropsFromDefinition(getVariableInfo("cuboidWidth"))}
+                />
+                ), front/back ({" "}
+                <InlineScrubbleNumber
+                    varName="cuboidLength"
+                    {...numberPropsFromDefinition(getVariableInfo("cuboidLength"))}
+                    showHint={false}
+                />
+                {" "}×{" "}
+                <InlineScrubbleNumber
+                    varName="cuboidHeight"
+                    {...numberPropsFromDefinition(getVariableInfo("cuboidHeight"))}
+                />
+                ), and sides ({" "}
+                <InlineScrubbleNumber
+                    varName="cuboidWidth"
+                    {...numberPropsFromDefinition(getVariableInfo("cuboidWidth"))}
+                    showHint={false}
+                />
+                {" "}×{" "}
+                <InlineScrubbleNumber
+                    varName="cuboidHeight"
+                    {...numberPropsFromDefinition(getVariableInfo("cuboidHeight"))}
+                    showHint={false}
+                />
+                ). Multiply by 2 since each face appears twice.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -401,7 +456,22 @@ export const cubeAndCuboidBlocks: ReactElement[] = [
     <StackLayout key="layout-cuboid-volume-explanation" maxWidth="xl">
         <Block id="cuboid-volume-explanation" padding="sm">
             <EditableParagraph id="para-cuboid-volume-explanation" blockId="cuboid-volume-explanation">
-                The volume formula is wonderfully simple: just multiply the three dimensions together. Think of it as stacking layers: the base area (length × width) multiplied by how many layers high (height).
+                Volume ={" "}
+                <InlineScrubbleNumber
+                    varName="cuboidLength"
+                    {...numberPropsFromDefinition(getVariableInfo("cuboidLength"))}
+                />
+                {" "}×{" "}
+                <InlineScrubbleNumber
+                    varName="cuboidWidth"
+                    {...numberPropsFromDefinition(getVariableInfo("cuboidWidth"))}
+                />
+                {" "}×{" "}
+                <InlineScrubbleNumber
+                    varName="cuboidHeight"
+                    {...numberPropsFromDefinition(getVariableInfo("cuboidHeight"))}
+                />
+                . Think of it as base area times height: how many layers of unit cubes stack up.
             </EditableParagraph>
         </Block>
     </StackLayout>,
