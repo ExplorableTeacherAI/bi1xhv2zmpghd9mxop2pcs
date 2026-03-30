@@ -142,15 +142,15 @@ export const pyramidBlocks: ReactElement[] = [
     <StackLayout key="layout-pyramid-intro" maxWidth="xl">
         <Block id="pyramid-intro" padding="sm">
             <EditableParagraph id="para-pyramid-intro" blockId="pyramid-intro">
-                A pyramid is a shape with a polygon base and triangular faces that meet at a single point called the{" "}
+                A pyramid has triangular faces meeting at an{" "}
                 <InlineTooltip id="tooltip-pyramid-apex" tooltip="The top point where all the triangular faces of the pyramid meet">
                     apex
                 </InlineTooltip>
-                . The Great Pyramid of Giza is the most famous example. We will focus on square-based pyramids, where the base is a square with side length{" "}
+                . We focus on square-based pyramids with base side{" "}
                 <InlineSpotColor varName="pyramidBase" color="#62D0AD">a</InlineSpotColor>
-                {" "}and the vertical{" "}
+                {" "}and vertical{" "}
                 <InlineSpotColor varName="pyramidHeight" color="#F7B23B">height</InlineSpotColor>
-                {" "}goes from the center of the base to the apex.
+                .
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -187,7 +187,7 @@ export const pyramidBlocks: ReactElement[] = [
     <StackLayout key="layout-pyramid-explore" maxWidth="xl">
         <Block id="pyramid-explore" padding="sm">
             <EditableParagraph id="para-pyramid-explore" blockId="pyramid-explore">
-                Rotate the pyramid to see its structure clearly. Notice the purple square base, the four triangular faces in teal, and the amber height line from the center of the base to the red apex. Unlike a cone, the pyramid has flat faces and distinct edges. When you make the base larger, watch how the triangular faces become wider.
+                Rotate to see the purple square base, four teal triangular faces, and amber height line. Unlike a cone, the pyramid has flat faces and distinct edges.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -214,7 +214,7 @@ export const pyramidBlocks: ReactElement[] = [
     <StackLayout key="layout-pyramid-volume-explanation" maxWidth="xl">
         <Block id="pyramid-volume-explanation" padding="sm">
             <EditableParagraph id="para-pyramid-volume-explanation" blockId="pyramid-volume-explanation">
-                Just like the cone, a pyramid has exactly one-third the volume of a prism with the same base and height. This is no coincidence: any shape that tapers to a point has this same ⅓ factor in its volume formula. For a square-based pyramid, the base area is side², so the volume becomes ⅓ × side² × height.
+                Like the cone, a pyramid has ⅓ the volume of a prism with the same base and height. Any shape tapering to a point has this ⅓ factor.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -232,7 +232,7 @@ export const pyramidBlocks: ReactElement[] = [
     <StackLayout key="layout-pyramid-surface-explanation" maxWidth="xl">
         <Block id="pyramid-surface-explanation" padding="sm">
             <EditableParagraph id="para-pyramid-surface-explanation" blockId="pyramid-surface-explanation">
-                The surface area has two parts: the square base (side²) and the four triangular faces. Each triangular face is an isoceles triangle with base equal to the pyramid's base side and height equal to the slant height (l). The slant height is different from the vertical height and can be calculated using the Pythagorean theorem.
+                Surface area = square base + four triangular faces. Each triangle has base = side and height = slant height (different from vertical height).
             </EditableParagraph>
         </Block>
     </StackLayout>,

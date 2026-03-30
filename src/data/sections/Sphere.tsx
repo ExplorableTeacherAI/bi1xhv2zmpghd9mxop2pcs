@@ -144,9 +144,9 @@ export const sphereBlocks: ReactElement[] = [
     <StackLayout key="layout-sphere-intro" maxWidth="xl">
         <Block id="sphere-intro" padding="sm">
             <EditableParagraph id="para-sphere-intro" blockId="sphere-intro">
-                A sphere is the most perfectly symmetrical 3D shape. Every point on its surface is exactly the same distance from the center. Think of a basketball, the Earth, or a soap bubble. The only measurement you need is the{" "}
+                A sphere is perfectly symmetrical. Every surface point is the same distance from the center. The only measurement needed is the{" "}
                 <InlineSpotColor varName="sphereRadius" color="#62D0AD">radius</InlineSpotColor>
-                , which determines everything else about the sphere.
+                .
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -176,7 +176,7 @@ export const sphereBlocks: ReactElement[] = [
     <StackLayout key="layout-sphere-explore" maxWidth="xl">
         <Block id="sphere-explore" padding="sm">
             <EditableParagraph id="para-sphere-explore" blockId="sphere-explore">
-                Rotate the sphere and observe its perfect roundness from every angle. The amber circle shows the equator, and the indigo circle shows a meridian. Notice the green radius line from the center to the surface. No matter which direction you draw a radius, it will always have the same length. This perfect symmetry is why spheres appear so often in nature.
+                Rotate and observe perfect roundness from every angle. The amber equator and indigo meridian show the sphere's symmetry. The green radius is the same length in any direction.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -203,7 +203,7 @@ export const sphereBlocks: ReactElement[] = [
     <StackLayout key="layout-sphere-surface-explanation" maxWidth="xl">
         <Block id="sphere-surface-explanation" padding="sm">
             <EditableParagraph id="para-sphere-surface-explanation" blockId="sphere-surface-explanation">
-                The surface area is exactly 4 times the area of a circle with the same radius. This is a beautiful mathematical result discovered by Archimedes over 2000 years ago. It means wrapping a ball requires exactly 4 times as much material as covering a flat circle of the same radius.
+                Surface area = 4 × the area of a circle with the same radius. Archimedes discovered this over 2000 years ago.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -221,7 +221,7 @@ export const sphereBlocks: ReactElement[] = [
     <StackLayout key="layout-sphere-volume-explanation" maxWidth="xl">
         <Block id="sphere-volume-explanation" padding="sm">
             <EditableParagraph id="para-sphere-volume-explanation" blockId="sphere-volume-explanation">
-                The volume formula has the fraction 4/3 in it, which might seem strange at first. But there is a clever way to understand it: imagine a cylinder that perfectly fits around the sphere (same radius and height equal to the diameter). The sphere's volume is exactly 2/3 of that cylinder's volume. Since the cylinder volume is πr² × 2r = 2πr³, the sphere volume is (2/3) × 2πr³ = (4/3)πr³.
+                The 4/3 factor: a sphere fills exactly 2/3 of a cylinder that fits perfectly around it. This gives (4/3)πr³.
             </EditableParagraph>
         </Block>
     </StackLayout>,

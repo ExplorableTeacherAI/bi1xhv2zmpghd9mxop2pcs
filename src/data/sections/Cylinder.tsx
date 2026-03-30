@@ -159,11 +159,11 @@ export const cylinderBlocks: ReactElement[] = [
     <StackLayout key="layout-cylinder-intro" maxWidth="xl">
         <Block id="cylinder-intro" padding="sm">
             <EditableParagraph id="para-cylinder-intro" blockId="cylinder-intro">
-                A cylinder is like a stack of circles. Think of a tin can, a drinking glass, or a pillar. It has two circular bases connected by a curved surface. The key measurements are the{" "}
+                A cylinder is like a stack of circles: two circular bases connected by a curved surface. Key measurements are the{" "}
                 <InlineSpotColor varName="cylinderRadius" color="#62D0AD">radius</InlineSpotColor>
-                {" "}of the circular base and the{" "}
+                {" "}and the{" "}
                 <InlineSpotColor varName="cylinderHeight" color="#8E90F5">height</InlineSpotColor>
-                {" "}between the two bases.
+                .
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -200,7 +200,7 @@ export const cylinderBlocks: ReactElement[] = [
     <StackLayout key="layout-cylinder-explore" maxWidth="xl">
         <Block id="cylinder-explore" padding="sm">
             <EditableParagraph id="para-cylinder-explore" blockId="cylinder-explore">
-                Rotate the cylinder and observe its three parts: the teal curved surface that wraps around, and the two purple circular ends. When you increase the radius, both the curved surface and the circular ends grow larger. When you increase the height, only the curved surface gets taller, while the circular ends stay the same size.
+                Rotate to see three parts: teal curved surface and two purple circular ends. Increase radius and both parts grow. Increase height and only the curved surface gets taller.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -227,7 +227,7 @@ export const cylinderBlocks: ReactElement[] = [
     <StackLayout key="layout-cylinder-surface-explanation" maxWidth="xl">
         <Block id="cylinder-surface-explanation" padding="sm">
             <EditableParagraph id="para-cylinder-surface-explanation" blockId="cylinder-surface-explanation">
-                The surface area has two parts. First, 2πr² accounts for the two circular ends (each has area πr², and there are two). Second, 2πrh is the curved surface, which you can imagine unrolling into a rectangle with width equal to the circumference (2πr) and height equal to the cylinder's height.
+                Two parts: 2πr² for the two circular ends, and 2πrh for the curved surface (imagine unrolling it into a rectangle).
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -245,7 +245,7 @@ export const cylinderBlocks: ReactElement[] = [
     <StackLayout key="layout-cylinder-volume-explanation" maxWidth="xl">
         <Block id="cylinder-volume-explanation" padding="sm">
             <EditableParagraph id="para-cylinder-volume-explanation" blockId="cylinder-volume-explanation">
-                The volume formula is elegant: base area × height. The base is a circle with area πr², and we multiply by the height to get the total volume. This is the same principle as finding the volume of a cuboid, just with a circular base instead of a rectangular one.
+                Volume = base area × height. The circular base has area πr², multiplied by height. Same principle as a cuboid, just with a circular base.
             </EditableParagraph>
         </Block>
     </StackLayout>,

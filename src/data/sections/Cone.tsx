@@ -159,17 +159,17 @@ export const coneBlocks: ReactElement[] = [
     <StackLayout key="layout-cone-intro" maxWidth="xl">
         <Block id="cone-intro" padding="sm">
             <EditableParagraph id="para-cone-intro" blockId="cone-intro">
-                A cone is like a cylinder that tapers to a point. Think of an ice cream cone, a party hat, or a traffic cone. It has a circular base and comes to a single point called the{" "}
+                A cone tapers from a circular base to a point called the{" "}
                 <InlineTooltip id="tooltip-apex" tooltip="The tip or point at the top of the cone, opposite to the base">
                     apex
                 </InlineTooltip>
-                . The cone has two important height measurements:{" "}
+                . Two heights matter:{" "}
                 <InlineSpotColor varName="coneHeight" color="#62D0AD">vertical height</InlineSpotColor>
-                {" "}(straight up from base to apex) and{" "}
+                {" "}(straight up) and{" "}
                 <InlineTooltip id="tooltip-slant-height" tooltip="The distance along the surface from the edge of the base to the apex">
                     slant height
                 </InlineTooltip>
-                {" "}(along the sloping surface).
+                {" "}(along the surface).
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -206,7 +206,7 @@ export const coneBlocks: ReactElement[] = [
     <StackLayout key="layout-cone-explore" maxWidth="xl">
         <Block id="cone-explore" padding="sm">
             <EditableParagraph id="para-cone-explore" blockId="cone-explore">
-                Rotate the cone to see its structure. Notice the green vertical height line from the center of the base to the apex, the purple radius line on the base, and the dashed violet slant height line along the surface. The slant height is always longer than the vertical height because it follows the Pythagorean theorem: slant² = height² + radius².
+                Rotate to see the green vertical height, purple radius, and dashed violet slant height. Slant height is always longer: slant² = height² + radius².
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -243,7 +243,7 @@ export const coneBlocks: ReactElement[] = [
     <StackLayout key="layout-cone-surface-explanation" maxWidth="xl">
         <Block id="cone-surface-explanation" padding="sm">
             <EditableParagraph id="para-cone-surface-explanation" blockId="cone-surface-explanation">
-                The surface area consists of two parts: the circular base (πr²) and the curved lateral surface (πrl, where l is the slant height). If you were to cut the curved surface and unroll it, you would get a sector of a larger circle.
+                Two parts: circular base (πr²) and curved surface (πrl). Unroll the curved surface and you get a sector of a circle.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -261,7 +261,7 @@ export const coneBlocks: ReactElement[] = [
     <StackLayout key="layout-cone-volume-explanation" maxWidth="xl">
         <Block id="cone-volume-explanation" padding="sm">
             <EditableParagraph id="para-cone-volume-explanation" blockId="cone-volume-explanation">
-                Here is a remarkable fact: a cone has exactly one-third the volume of a cylinder with the same base and height. This means you could fill a cylinder with water from exactly three cones of the same dimensions! The ⅓ factor appears because the cone tapers to a point instead of maintaining its full width.
+                A cone has ⅓ the volume of a cylinder with the same base and height. Fill a cylinder with exactly three cones! The ⅓ factor comes from the taper to a point.
             </EditableParagraph>
         </Block>
     </StackLayout>,

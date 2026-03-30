@@ -32,7 +32,7 @@ export const formulaChallengeBlocks: ReactElement[] = [
     <StackLayout key="layout-challenge-intro" maxWidth="xl">
         <Block id="challenge-intro" padding="sm">
             <EditableParagraph id="para-challenge-intro" blockId="challenge-intro">
-                Now it's time to test your understanding of 3D shape formulas. One of the biggest challenges students face is choosing the right formula for the right situation. Below is a quick reference table, followed by some real-world problems. Can you identify which formula to use and calculate the correct answer?
+                Test your understanding! Choosing the right formula is key. Use the reference table below to solve real-world problems.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -174,7 +174,7 @@ export const formulaChallengeBlocks: ReactElement[] = [
     <StackLayout key="layout-challenge-summary" maxWidth="xl">
         <Block id="challenge-summary" padding="lg">
             <EditableParagraph id="para-challenge-summary" blockId="challenge-summary">
-                Congratulations on completing this lesson! You've explored six fundamental 3D shapes: the cube, cuboid, cylinder, cone, sphere, and pyramid. Remember these key insights: shapes that taper to a point (cone and pyramid) have the ⅓ factor in their volume formulas. The sphere is unique with its 4/3 factor. And always check your units: surface area is in square units (cm²), while volume is in cubic units (cm³). Keep practicing, and these formulas will become second nature!
+                Well done! You've explored six 3D shapes. Key insights: cone and pyramid have ⅓ in their volume formulas. Sphere has 4/3. Surface area uses cm², volume uses cm³.
             </EditableParagraph>
         </Block>
     </StackLayout>,

@@ -174,7 +174,7 @@ export const introductionBlocks: ReactElement[] = [
     <StackLayout key="layout-intro-hook" maxWidth="xl">
         <Block id="intro-hook" padding="sm">
             <EditableParagraph id="para-intro-hook" blockId="intro-hook">
-                Imagine you want to wrap a gift box with paper, and also fill that same box with sand. You would need to measure two completely different things: the amount of paper to cover the outside, and the amount of sand to fill the inside. These are{" "}
+                Wrapping a gift box needs paper to cover the outside. Filling it with sand needs space inside. These are{" "}
                 <InlineTooltip id="tooltip-surface-area" tooltip="The total area of all the outer surfaces of a 3D shape, measured in square units like cm² or m²">
                     surface area
                 </InlineTooltip>
@@ -182,7 +182,7 @@ export const introductionBlocks: ReactElement[] = [
                 <InlineTooltip id="tooltip-volume" tooltip="The amount of space inside a 3D shape, measured in cubic units like cm³ or m³">
                     volume
                 </InlineTooltip>
-                . Understanding the difference is essential for solving real-world problems in architecture, engineering, and everyday life.
+                . Knowing the difference helps solve real-world problems.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -224,7 +224,7 @@ export const introductionBlocks: ReactElement[] = [
     <StackLayout key="layout-intro-explanation" maxWidth="xl">
         <Block id="intro-explanation" padding="md">
             <EditableParagraph id="para-intro-explanation" blockId="intro-explanation">
-                Look at the two cubes above. On the left, you can see the six coloured faces that make up the surface of the cube. Drag to rotate it and notice how each face is a square. On the right, the same cube is filled with 27 smaller unit cubes. This shows how volume measures the space inside. The key insight is that surface area uses square units (cm²) while volume uses cubic units (cm³). When you double the side length of a cube, its surface area increases by 4 times, but its volume increases by 8 times!
+                On the left, drag to rotate and see the six square faces. On the right, 27 unit cubes fill the inside. Surface area uses cm², volume uses cm³. Double the side length and surface area grows 4×, but volume grows 8×!
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -233,7 +233,7 @@ export const introductionBlocks: ReactElement[] = [
     <StackLayout key="layout-intro-transition" maxWidth="xl">
         <Block id="intro-transition" padding="md">
             <EditableParagraph id="para-intro-transition" blockId="intro-transition">
-                In the sections that follow, you will explore each 3D shape interactively. You can change dimensions, see how the formulas work in real-time, and build a deep understanding of when to use surface area versus volume calculations. Let's start with the simplest shapes: the cube and cuboid.
+                Now explore each 3D shape interactively. Change dimensions and see formulas work in real-time. Let's start with the cube and cuboid.
             </EditableParagraph>
         </Block>
     </StackLayout>,

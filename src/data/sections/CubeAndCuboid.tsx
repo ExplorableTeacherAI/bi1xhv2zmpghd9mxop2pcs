@@ -175,7 +175,7 @@ export const cubeAndCuboidBlocks: ReactElement[] = [
     <StackLayout key="layout-cube-intro" maxWidth="xl">
         <Block id="cube-intro" padding="sm">
             <EditableParagraph id="para-cube-intro" blockId="cube-intro">
-                A cube has all edges the same length. Every face is an identical square. Rotate the 3D cube and notice how all 6 faces look the same from every angle.
+                A cube has all edges equal. Rotate the 3D shape and notice all 6 faces are identical squares.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -224,16 +224,16 @@ export const cubeAndCuboidBlocks: ReactElement[] = [
     <StackLayout key="layout-cube-surface-explanation" maxWidth="xl">
         <Block id="cube-surface-explanation" padding="sm">
             <EditableParagraph id="para-cube-surface-explanation" blockId="cube-surface-explanation">
-                A cube with side{" "}
+                A cube has 6 faces, each with area{" "}
+                <InlineSpotColor varName="cubeSide" color="#62D0AD">side</InlineSpotColor>
+                {" "}×{" "}
+                <InlineSpotColor varName="cubeSide" color="#62D0AD">side</InlineSpotColor>
+                . Change the side to{" "}
                 <InlineScrubbleNumber
                     varName="cubeSide"
                     {...numberPropsFromDefinition(getVariableInfo("cubeSide"))}
                 />{" "}
-                cm has 6 faces, each with area{" "}
-                <InlineSpotColor varName="cubeSide" color="#62D0AD">side</InlineSpotColor>
-                {" "}×{" "}
-                <InlineSpotColor varName="cubeSide" color="#62D0AD">side</InlineSpotColor>
-                . Watch the surface area jump as you increase the side length!
+                cm and watch the surface area grow!
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -336,13 +336,13 @@ export const cubeAndCuboidBlocks: ReactElement[] = [
     <StackLayout key="layout-cuboid-intro" maxWidth="xl">
         <Block id="cuboid-intro" padding="sm">
             <EditableParagraph id="para-cuboid-intro" blockId="cuboid-intro">
-                A cuboid has three dimensions:{" "}
+                A cuboid has{" "}
                 <InlineSpotColor varName="cuboidLength" color="#62D0AD">length</InlineSpotColor>
                 ,{" "}
                 <InlineSpotColor varName="cuboidWidth" color="#8E90F5">width</InlineSpotColor>
                 , and{" "}
                 <InlineSpotColor varName="cuboidHeight" color="#F7B23B">height</InlineSpotColor>
-                . Boxes, books, and bricks are all cuboids. Rotate the shape to see how the different dimensions create different-sized faces.
+                . Boxes and bricks are cuboids. Rotate to see the different-sized faces.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -405,40 +405,7 @@ export const cubeAndCuboidBlocks: ReactElement[] = [
     <StackLayout key="layout-cuboid-surface-explanation" maxWidth="xl">
         <Block id="cuboid-surface-explanation" padding="sm">
             <EditableParagraph id="para-cuboid-surface-explanation" blockId="cuboid-surface-explanation">
-                A cuboid has 3 pairs of faces: top/bottom ({" "}
-                <InlineScrubbleNumber
-                    varName="cuboidLength"
-                    {...numberPropsFromDefinition(getVariableInfo("cuboidLength"))}
-                />
-                {" "}×{" "}
-                <InlineScrubbleNumber
-                    varName="cuboidWidth"
-                    {...numberPropsFromDefinition(getVariableInfo("cuboidWidth"))}
-                />
-                ), front/back ({" "}
-                <InlineScrubbleNumber
-                    varName="cuboidLength"
-                    {...numberPropsFromDefinition(getVariableInfo("cuboidLength"))}
-                    showHint={false}
-                />
-                {" "}×{" "}
-                <InlineScrubbleNumber
-                    varName="cuboidHeight"
-                    {...numberPropsFromDefinition(getVariableInfo("cuboidHeight"))}
-                />
-                ), and sides ({" "}
-                <InlineScrubbleNumber
-                    varName="cuboidWidth"
-                    {...numberPropsFromDefinition(getVariableInfo("cuboidWidth"))}
-                    showHint={false}
-                />
-                {" "}×{" "}
-                <InlineScrubbleNumber
-                    varName="cuboidHeight"
-                    {...numberPropsFromDefinition(getVariableInfo("cuboidHeight"))}
-                    showHint={false}
-                />
-                ). Multiply by 2 since each face appears twice.
+                Three pairs of faces: top/bottom, front/back, and sides. Each pair appears twice, so multiply by 2.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -456,22 +423,7 @@ export const cubeAndCuboidBlocks: ReactElement[] = [
     <StackLayout key="layout-cuboid-volume-explanation" maxWidth="xl">
         <Block id="cuboid-volume-explanation" padding="sm">
             <EditableParagraph id="para-cuboid-volume-explanation" blockId="cuboid-volume-explanation">
-                Volume ={" "}
-                <InlineScrubbleNumber
-                    varName="cuboidLength"
-                    {...numberPropsFromDefinition(getVariableInfo("cuboidLength"))}
-                />
-                {" "}×{" "}
-                <InlineScrubbleNumber
-                    varName="cuboidWidth"
-                    {...numberPropsFromDefinition(getVariableInfo("cuboidWidth"))}
-                />
-                {" "}×{" "}
-                <InlineScrubbleNumber
-                    varName="cuboidHeight"
-                    {...numberPropsFromDefinition(getVariableInfo("cuboidHeight"))}
-                />
-                . Think of it as base area times height: how many layers of unit cubes stack up.
+                Volume = length × width × height. Think of it as stacking layers of unit cubes.
             </EditableParagraph>
         </Block>
     </StackLayout>,
