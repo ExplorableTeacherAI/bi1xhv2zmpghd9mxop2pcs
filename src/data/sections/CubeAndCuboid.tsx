@@ -106,13 +106,18 @@ function InteractiveCuboid() {
                 showGrid={true}
                 showLabels={true}
                 plots={[
-                    // Cuboid faces
-                    { type: "plane", point: [length / 2, height / 2, width], normal: [0, 0, 1], size: Math.max(length, height), color: "#62D0AD", opacity: 0.5 },
-                    { type: "plane", point: [length / 2, height / 2, 0], normal: [0, 0, -1], size: Math.max(length, height), color: "#62D0AD", opacity: 0.5 },
-                    { type: "plane", point: [length / 2, height, width / 2], normal: [0, 1, 0], size: Math.max(length, width), color: "#8E90F5", opacity: 0.5 },
-                    { type: "plane", point: [length / 2, 0, width / 2], normal: [0, -1, 0], size: Math.max(length, width), color: "#8E90F5", opacity: 0.5 },
-                    { type: "plane", point: [0, height / 2, width / 2], normal: [-1, 0, 0], size: Math.max(height, width), color: "#F7B23B", opacity: 0.5 },
-                    { type: "plane", point: [length, height / 2, width / 2], normal: [1, 0, 0], size: Math.max(height, width), color: "#F7B23B", opacity: 0.5 },
+                    // Front face (z = width) - length x height
+                    { type: "polygon", points: [[0, 0, width], [length, 0, width], [length, height, width], [0, height, width]], color: "#62D0AD", opacity: 0.5 },
+                    // Back face (z = 0) - length x height
+                    { type: "polygon", points: [[0, 0, 0], [0, height, 0], [length, height, 0], [length, 0, 0]], color: "#62D0AD", opacity: 0.5 },
+                    // Top face (y = height) - length x width
+                    { type: "polygon", points: [[0, height, 0], [0, height, width], [length, height, width], [length, height, 0]], color: "#8E90F5", opacity: 0.5 },
+                    // Bottom face (y = 0) - length x width
+                    { type: "polygon", points: [[0, 0, 0], [length, 0, 0], [length, 0, width], [0, 0, width]], color: "#8E90F5", opacity: 0.5 },
+                    // Left face (x = 0) - width x height
+                    { type: "polygon", points: [[0, 0, 0], [0, 0, width], [0, height, width], [0, height, 0]], color: "#F7B23B", opacity: 0.5 },
+                    // Right face (x = length) - width x height
+                    { type: "polygon", points: [[length, 0, 0], [length, height, 0], [length, height, width], [length, 0, width]], color: "#F7B23B", opacity: 0.5 },
                     // Edges
                     { type: "segment", point1: [0, 0, 0], point2: [length, 0, 0], color: "#334155", lineWidth: 2 },
                     { type: "segment", point1: [0, 0, 0], point2: [0, height, 0], color: "#334155", lineWidth: 2 },

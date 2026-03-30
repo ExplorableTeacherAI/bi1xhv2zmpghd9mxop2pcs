@@ -142,6 +142,16 @@ export interface PolylinePlot3D {
     highlightId?: string;
 }
 
+/** A filled 3D polygon (triangle or quad) */
+export interface PolygonPlot3D {
+    type: "polygon";
+    /** 3 or 4 points defining the polygon vertices in order */
+    points: [number, number, number][];
+    color?: string;
+    opacity?: number;
+    highlightId?: string;
+}
+
 export type PlotItem3D =
     | SurfacePlot3D
     | ParametricCurve3D
@@ -151,7 +161,8 @@ export type PlotItem3D =
     | SegmentPlot3D
     | SpherePlot3D
     | PlanePlot3D
-    | PolylinePlot3D;
+    | PolylinePlot3D
+    | PolygonPlot3D;
 
 // ── Draggable point configuration ─────────────────────────────────────────────
 
@@ -979,6 +990,51 @@ function RenderPlotItem({
                     transparent
                     opacity={opacity}
                 />
+            );
+        }
+
+        case "polygon": {
+            const { opacity } = getHighlightStyle3D(
+                item.highlightId,
+                activeId,
+                item.opacity ?? 0.5
+            );
+            // Create a geometry from the polygon points
+            const pts = item.points;
+            if (pts.length < 3) return null;
+
+            const geometry = new THREE.BufferGeometry();
+            const vertices: number[] = [];
+            const indices: number[] = [];
+
+            // Add vertices
+            for (const p of pts) {
+                vertices.push(p[0], p[1], p[2]);
+            }
+
+            // Triangulate (fan triangulation for convex polygons)
+            for (let i = 1; i < pts.length - 1; i++) {
+                indices.push(0, i, i + 1);
+            }
+
+            geometry.setAttribute(
+                "position",
+                new THREE.Float32BufferAttribute(vertices, 3)
+            );
+            geometry.setIndex(indices);
+            geometry.computeVertexNormals();
+
+            return (
+                <mesh geometry={geometry}>
+                    <meshStandardMaterial
+                        color={item.color ?? "#10B981"}
+                        transparent
+                        opacity={opacity}
+                        side={THREE.DoubleSide}
+                        roughness={0.6}
+                        metalness={0.1}
+                    />
+                </mesh>
             );
         }
     }
