@@ -159,17 +159,25 @@ export const coneBlocks: ReactElement[] = [
     <StackLayout key="layout-cone-intro" maxWidth="xl">
         <Block id="cone-intro" padding="sm">
             <EditableParagraph id="para-cone-intro" blockId="cone-intro">
-                A cone tapers from a circular base to a point called the{" "}
+                A cone tapers from a circular base with{" "}
+                <InlineSpotColor varName="coneRadius" color="#8E90F5">radius</InlineSpotColor>
+                {" "}={" "}
+                <InlineScrubbleNumber
+                    varName="coneRadius"
+                    {...numberPropsFromDefinition(getVariableInfo("coneRadius"))}
+                />{" "}
+                cm and{" "}
+                <InlineSpotColor varName="coneHeight" color="#62D0AD">height</InlineSpotColor>
+                {" "}={" "}
+                <InlineScrubbleNumber
+                    varName="coneHeight"
+                    {...numberPropsFromDefinition(getVariableInfo("coneHeight"))}
+                />{" "}
+                cm to a point called the{" "}
                 <InlineTooltip id="tooltip-apex" tooltip="The tip or point at the top of the cone, opposite to the base">
                     apex
                 </InlineTooltip>
-                . Two heights matter:{" "}
-                <InlineSpotColor varName="coneHeight" color="#62D0AD">vertical height</InlineSpotColor>
-                {" "}(straight up) and{" "}
-                <InlineTooltip id="tooltip-slant-height" tooltip="The distance along the surface from the edge of the base to the apex">
-                    slant height
-                </InlineTooltip>
-                {" "}(along the surface).
+                .
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -179,28 +187,9 @@ export const coneBlocks: ReactElement[] = [
         <Block id="cone-visualization" padding="sm" hasVisualization>
             <InteractiveCone />
         </Block>
-        <div className="space-y-4">
-            <Block id="cone-controls" padding="sm">
-                <EditableParagraph id="para-cone-controls" blockId="cone-controls">
-                    <strong>Radius:</strong>{" "}
-                    <InlineScrubbleNumber
-                        varName="coneRadius"
-                        {...numberPropsFromDefinition(getVariableInfo("coneRadius"))}
-                    />{" "}
-                    cm
-                    <br />
-                    <strong>Height:</strong>{" "}
-                    <InlineScrubbleNumber
-                        varName="coneHeight"
-                        {...numberPropsFromDefinition(getVariableInfo("coneHeight"))}
-                    />{" "}
-                    cm
-                </EditableParagraph>
-            </Block>
-            <Block id="cone-calculations" padding="sm">
-                <ConeCalculations />
-            </Block>
-        </div>
+        <Block id="cone-calculations" padding="sm">
+            <ConeCalculations />
+        </Block>
     </SplitLayout>,
 
     <StackLayout key="layout-cone-explore" maxWidth="xl">

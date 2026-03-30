@@ -144,9 +144,14 @@ export const sphereBlocks: ReactElement[] = [
     <StackLayout key="layout-sphere-intro" maxWidth="xl">
         <Block id="sphere-intro" padding="sm">
             <EditableParagraph id="para-sphere-intro" blockId="sphere-intro">
-                A sphere is perfectly symmetrical. Every surface point is the same distance from the center. The only measurement needed is the{" "}
+                A sphere is perfectly symmetrical. Every surface point is exactly{" "}
                 <InlineSpotColor varName="sphereRadius" color="#62D0AD">radius</InlineSpotColor>
-                .
+                {" "}={" "}
+                <InlineScrubbleNumber
+                    varName="sphereRadius"
+                    {...numberPropsFromDefinition(getVariableInfo("sphereRadius"))}
+                />{" "}
+                cm from the center. Rotate to see this perfect roundness.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -156,21 +161,9 @@ export const sphereBlocks: ReactElement[] = [
         <Block id="sphere-visualization" padding="sm" hasVisualization>
             <InteractiveSphere />
         </Block>
-        <div className="space-y-4">
-            <Block id="sphere-controls" padding="sm">
-                <EditableParagraph id="para-sphere-controls" blockId="sphere-controls">
-                    <strong>Radius:</strong>{" "}
-                    <InlineScrubbleNumber
-                        varName="sphereRadius"
-                        {...numberPropsFromDefinition(getVariableInfo("sphereRadius"))}
-                    />{" "}
-                    cm
-                </EditableParagraph>
-            </Block>
-            <Block id="sphere-calculations" padding="sm">
-                <SphereCalculations />
-            </Block>
-        </div>
+        <Block id="sphere-calculations" padding="sm">
+            <SphereCalculations />
+        </Block>
     </SplitLayout>,
 
     <StackLayout key="layout-sphere-explore" maxWidth="xl">

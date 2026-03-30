@@ -175,7 +175,12 @@ export const cubeAndCuboidBlocks: ReactElement[] = [
     <StackLayout key="layout-cube-intro" maxWidth="xl">
         <Block id="cube-intro" padding="sm">
             <EditableParagraph id="para-cube-intro" blockId="cube-intro">
-                A cube has all edges equal. Rotate the 3D shape and notice all 6 faces are identical squares.
+                A cube has all edges equal. With side length{" "}
+                <InlineScrubbleNumber
+                    varName="cubeSide"
+                    {...numberPropsFromDefinition(getVariableInfo("cubeSide"))}
+                />{" "}
+                cm, rotate the 3D shape and notice all 6 faces are identical squares.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -185,21 +190,9 @@ export const cubeAndCuboidBlocks: ReactElement[] = [
         <Block id="cube-visualization" padding="sm" hasVisualization>
             <InteractiveCube />
         </Block>
-        <div className="space-y-4">
-            <Block id="cube-controls" padding="sm">
-                <EditableParagraph id="para-cube-controls" blockId="cube-controls">
-                    <strong>Side length:</strong>{" "}
-                    <InlineScrubbleNumber
-                        varName="cubeSide"
-                        {...numberPropsFromDefinition(getVariableInfo("cubeSide"))}
-                    />{" "}
-                    cm
-                </EditableParagraph>
-            </Block>
-            <Block id="cube-calculations" padding="sm">
-                <CubeCalculations />
-            </Block>
-        </div>
+        <Block id="cube-calculations" padding="sm">
+            <CubeCalculations />
+        </Block>
     </SplitLayout>,
 
     // Cube formulas

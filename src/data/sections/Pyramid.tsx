@@ -146,11 +146,21 @@ export const pyramidBlocks: ReactElement[] = [
                 <InlineTooltip id="tooltip-pyramid-apex" tooltip="The top point where all the triangular faces of the pyramid meet">
                     apex
                 </InlineTooltip>
-                . We focus on square-based pyramids with base side{" "}
-                <InlineSpotColor varName="pyramidBase" color="#62D0AD">a</InlineSpotColor>
-                {" "}and vertical{" "}
+                . With{" "}
+                <InlineSpotColor varName="pyramidBase" color="#62D0AD">base side</InlineSpotColor>
+                {" "}={" "}
+                <InlineScrubbleNumber
+                    varName="pyramidBase"
+                    {...numberPropsFromDefinition(getVariableInfo("pyramidBase"))}
+                />{" "}
+                cm and{" "}
                 <InlineSpotColor varName="pyramidHeight" color="#F7B23B">height</InlineSpotColor>
-                .
+                {" "}={" "}
+                <InlineScrubbleNumber
+                    varName="pyramidHeight"
+                    {...numberPropsFromDefinition(getVariableInfo("pyramidHeight"))}
+                />{" "}
+                cm, rotate to explore the structure.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -160,28 +170,9 @@ export const pyramidBlocks: ReactElement[] = [
         <Block id="pyramid-visualization" padding="sm" hasVisualization>
             <InteractivePyramid />
         </Block>
-        <div className="space-y-4">
-            <Block id="pyramid-controls" padding="sm">
-                <EditableParagraph id="para-pyramid-controls" blockId="pyramid-controls">
-                    <strong>Base side:</strong>{" "}
-                    <InlineScrubbleNumber
-                        varName="pyramidBase"
-                        {...numberPropsFromDefinition(getVariableInfo("pyramidBase"))}
-                    />{" "}
-                    cm
-                    <br />
-                    <strong>Height:</strong>{" "}
-                    <InlineScrubbleNumber
-                        varName="pyramidHeight"
-                        {...numberPropsFromDefinition(getVariableInfo("pyramidHeight"))}
-                    />{" "}
-                    cm
-                </EditableParagraph>
-            </Block>
-            <Block id="pyramid-calculations" padding="sm">
-                <PyramidCalculations />
-            </Block>
-        </div>
+        <Block id="pyramid-calculations" padding="sm">
+            <PyramidCalculations />
+        </Block>
     </SplitLayout>,
 
     <StackLayout key="layout-pyramid-explore" maxWidth="xl">

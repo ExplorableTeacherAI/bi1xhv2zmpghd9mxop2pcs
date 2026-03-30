@@ -159,11 +159,21 @@ export const cylinderBlocks: ReactElement[] = [
     <StackLayout key="layout-cylinder-intro" maxWidth="xl">
         <Block id="cylinder-intro" padding="sm">
             <EditableParagraph id="para-cylinder-intro" blockId="cylinder-intro">
-                A cylinder is like a stack of circles: two circular bases connected by a curved surface. Key measurements are the{" "}
+                A cylinder is like a stack of circles: two circular bases connected by a curved surface. With{" "}
                 <InlineSpotColor varName="cylinderRadius" color="#62D0AD">radius</InlineSpotColor>
-                {" "}and the{" "}
+                {" "}={" "}
+                <InlineScrubbleNumber
+                    varName="cylinderRadius"
+                    {...numberPropsFromDefinition(getVariableInfo("cylinderRadius"))}
+                />{" "}
+                cm and{" "}
                 <InlineSpotColor varName="cylinderHeight" color="#8E90F5">height</InlineSpotColor>
-                .
+                {" "}={" "}
+                <InlineScrubbleNumber
+                    varName="cylinderHeight"
+                    {...numberPropsFromDefinition(getVariableInfo("cylinderHeight"))}
+                />{" "}
+                cm, rotate to explore its shape.
             </EditableParagraph>
         </Block>
     </StackLayout>,
@@ -173,28 +183,9 @@ export const cylinderBlocks: ReactElement[] = [
         <Block id="cylinder-visualization" padding="sm" hasVisualization>
             <InteractiveCylinder />
         </Block>
-        <div className="space-y-4">
-            <Block id="cylinder-controls" padding="sm">
-                <EditableParagraph id="para-cylinder-controls" blockId="cylinder-controls">
-                    <strong>Radius:</strong>{" "}
-                    <InlineScrubbleNumber
-                        varName="cylinderRadius"
-                        {...numberPropsFromDefinition(getVariableInfo("cylinderRadius"))}
-                    />{" "}
-                    cm
-                    <br />
-                    <strong>Height:</strong>{" "}
-                    <InlineScrubbleNumber
-                        varName="cylinderHeight"
-                        {...numberPropsFromDefinition(getVariableInfo("cylinderHeight"))}
-                    />{" "}
-                    cm
-                </EditableParagraph>
-            </Block>
-            <Block id="cylinder-calculations" padding="sm">
-                <CylinderCalculations />
-            </Block>
-        </div>
+        <Block id="cylinder-calculations" padding="sm">
+            <CylinderCalculations />
+        </Block>
     </SplitLayout>,
 
     <StackLayout key="layout-cylinder-explore" maxWidth="xl">
